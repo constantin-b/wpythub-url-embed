@@ -4,7 +4,7 @@
  * Plugin URI: https://wpythub.com
  * Description: Import YouTube videos into post and embed them by directly placing the video URL into the post content.
  * Author: CodeFlavors
- * Version: 1.0
+ * Version: 1.0.1
  * Author URI: https://wpythub.com
  */
 
