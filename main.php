@@ -41,6 +41,17 @@ class Plugin{
 				'https://www.youtube.com/watch?v=%s',
 				$video['video_id']
 			) . "\n\n" . $post_content;
+
+			global $wp_embed;
+			$post_content = $wp_embed->run_shortcode( $post_content );
+			$post_content = $wp_embed->autoembed( $post_content );
+			$post_content = do_blocks( $post_content );
+			$post_content = wptexturize( $post_content );
+			$post_content = convert_smilies( $post_content );
+			$post_content = shortcode_unautop( $post_content );
+			$post_content = wp_filter_content_tags( $post_content );
+			$post_content = do_shortcode( $post_content );
+			$post_content = str_replace( ']]>', ']]&gt;', $post_content );
 		}
 
 		return $post_content;
